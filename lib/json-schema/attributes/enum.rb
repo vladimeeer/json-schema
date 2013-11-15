@@ -2,6 +2,7 @@ module JSON
   class Schema
     class EnumAttribute < Attribute
       def self.validate(current_schema, data, fragments, processor, validator, options = {})
+        debugger
         if !current_schema.schema['enum'].include?(data)
           message = "The property '#{build_fragment(fragments)}' value #{data.inspect} did not match one of the following values:"
           current_schema.schema['enum'].each {|val|
